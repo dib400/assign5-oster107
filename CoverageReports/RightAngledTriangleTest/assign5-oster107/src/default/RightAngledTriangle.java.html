@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>RightAngledTriangle.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">RightAngledTriangleTest (Apr 23, 2016 7:48:23 PM)</a> &gt; <a href="../../index.html" class="el_group">assign5-oster107</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">RightAngledTriangle.java</span></div><h1>RightAngledTriangle.java</h1><pre class="source lang-java linenums">/**
+ * SE320- Individual Assignment 5
+ * 
+ * Represents a Right Angled Triangle
+ * @author Dr. Donyina
+ * @author Daniel Osterman
+ */
+public class RightAngledTriangle extends Triangle {
+	 /**
+     * Creates RightAngledTriangle object
+     * @param width
+     * @param height
+     * @param hypotenuse
+     * @throws Exception
+     */
+    RightAngledTriangle(double width, double height, double hypotenuse)
+            throws Exception {
+
+<span class="fc" id="L19">        super(width, height, hypotenuse);</span>
+<span class="fc" id="L20">    }</span>
+    
+    /**
+     * Validates Triangle side lengths are realistic
+     * &lt;p&gt;
+     * ERROR FOUND:
+     * Does not validate that inputs are valid numbers
+     * Add original Triangle's validate check to conditional
+     * Old Code:
+     * 
+     *if((sideC * sideC) == ((sideA * sideA) + (sideB * sideB))){
+     *      return true;
+     *  }
+     *  
+     * @param sideA first side of the triangle
+     * @param sideB second side of the triangle
+     * @param sideC third side of the triangle
+     */
+    public boolean validateInput(double sideA, double sideB, double sideC) {
+
+<span class="fc bfc" id="L40" title="All 4 branches covered.">        if(super.validateInput(sideA, sideB, sideC) &amp;&amp; (sideC * sideC) == ((sideA * sideA) + (sideB * sideB))){</span>
+<span class="fc" id="L41">            return true;</span>
+        }
+        
+<span class="fc" id="L44">        return false;</span>
+    }
+
+    /**
+     * Calculates Area using formula for triangles
+     *@return RightAngledTriangle Area
+     */
+    public double getArea() {
+<span class="fc" id="L52">        return ((sideA * sideB) / 2);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span>RightAngledTriangleTest (Apr 23, 2016 7:48:23 PM)</div></body></html>

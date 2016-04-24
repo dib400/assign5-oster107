@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>TriangleTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">EquilateralTriangleTest (Apr 23, 2016 7:48:49 PM)</a> &gt; <a href="../../index.html" class="el_group">assign5-oster107</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">TriangleTest.java</span></div><h1>TriangleTest.java</h1><pre class="source lang-java linenums">/**
+ * SE320- Individual Assignment 5
+ * 
+ * Tests Triangle Object's Methods
+ * @author Daniel Osterman
+ */
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+<span class="nc" id="L11">public class TriangleTest {</span>
+
+<span class="nc" id="L13">final int SIDEA = 3;</span>
+<span class="nc" id="L14">final int SIDEB = 4;</span>
+<span class="nc" id="L15">final int SIDEC = 5;</span>
+<span class="nc" id="L16">final int PERIMETER = SIDEA + SIDEB + SIDEC;</span>
+/**
+ * Reusable method for testing to create triangle or return error if unsuccessful
+ *@return Triangle Object
+ */
+	public Triangle createTriangle(){
+
+		Triangle tester;
+		try{
+<span class="nc" id="L25">			tester = new Triangle(SIDEA, SIDEB, SIDEC);</span>
+<span class="nc" id="L26">		}catch(Exception e){</span>
+<span class="nc" id="L27">			fail(&quot;Could not Generate Triangle&quot;);</span>
+<span class="nc" id="L28">			tester = null;</span>
+		}
+<span class="nc" id="L30">		return tester;</span>
+	}	
+
+    /**
+     * Tests Side length validation method
+     */
+	@Test
+	public void testValidate() {
+
+<span class="nc" id="L39">		Triangle t = createTriangle();</span>
+<span class="nc" id="L40">		assertFalse(t.validateInput(0, 0, 0));</span>
+<span class="nc" id="L41">		assertTrue(t.validateInput(1, 2, 3));</span>
+<span class="nc" id="L42">	}</span>
+    /**
+     * Tests that Triangle takes on the submitted parameters as side lengths
+     */
+	@Test
+	public void testSides() {
+<span class="nc" id="L48">		Triangle t = createTriangle();</span>
+<span class="nc" id="L49">		assertEquals(t.getSideA(), SIDEA, 0);</span>
+<span class="nc" id="L50">		assertEquals(t.getSideB(), SIDEB, 0);</span>
+<span class="nc" id="L51">		assertEquals(t.getSideC(), SIDEC, 0);</span>
+<span class="nc" id="L52">	}</span>
+	
+    /**
+     * Tests Correctness of Perimeter function
+     */
+	@Test
+	public void testPerimeter(){
+<span class="nc" id="L59">		Triangle t = createTriangle();</span>
+<span class="nc" id="L60">		assertEquals(t.getPerimeter(), PERIMETER, 0);</span>
+<span class="nc" id="L61">	}</span>
+	
+    /**
+     * Tests Area Calculation for faulty answers
+     */
+	@Test
+	public void testArea(){
+<span class="nc" id="L68">		Triangle t = createTriangle();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		assertTrue(t.getArea()&gt;0);</span>
+<span class="nc" id="L70">	}</span>
+	
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span>EquilateralTriangleTest (Apr 23, 2016 7:48:49 PM)</div></body></html>
